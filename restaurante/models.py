@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class Restaurante(models.Model):
     nombre = models.CharField(max_length=45)
     direccion = models.CharField(max_length=45)
-    img_restaurante = models.CharField(max_length=45, null=True)
+    img_restaurante = models.CharField(max_length=45, null=True, blank=True)
     descripcion = models.CharField(max_length=45)
     fecha_disponibilidad = models.CharField(max_length=45)
     n_mesas = models.CharField(max_length=45)

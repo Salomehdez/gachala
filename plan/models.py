@@ -16,7 +16,7 @@ class Plan(models.Model):
     precio = models.CharField(max_length=45)
     fecha_disponibilidad = models.CharField(max_length=45)
     descripcion = models.CharField(max_length=45)
-    img_plan = models.CharField(max_length=45, null=True)
+    img_plan = models.CharField(max_length=45, null=True, blank=True)
     agencia = models.ForeignKey(Agencia, on_delete=models.CASCADE)
 
 class ReservasPlan(models.Model):

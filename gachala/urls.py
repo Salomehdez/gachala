@@ -17,8 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from usuario.views import *
+from hotel.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
+    path('categorias/', categorias, name='categorias'),
+    path('detalles/', detalles, name='detalles'),
+    path('contacto/', contacto, name='contacto'),
+    path('ver_detalle_hotel/', ver_detalle_hotel, name='ver_detalle_hotel')
 ]
