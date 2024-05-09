@@ -1,0 +1,137 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>Document</title>
+</head>
+
+    <section  style="background-color: rgb(200, 200, 200); width: auto; ">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-10">
+              {% if mensaje %}
+                <div class="alert alert-danger d-flex align-items-center text-center" role="alert" style="height: 50px;">
+                  <div class="text-center justify-content-center">
+                      <h2 >{{ mensaje }}</h2>
+                  </div>
+                </div>
+              {% else %}
+
+              {% endif %}
+                  <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                    <div class="card-body p-4 p-lg-5 text-black">
+      
+                      
+      
+                        <div class ="row">
+                          <div class="col-md-6 mx-auto p-0">
+                            <div class="card">
+                        <div class="login-box">
+                          
+                          <div class="login-snip">
+                            
+                            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label>
+                            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                            <div class="login-space">
+                              <form method="post" action="{% url 'custom_login' %}">
+                                {% csrf_token %}
+                                <div class="login">
+                                  <div class="group">
+                                    <label for="user" class="label">Username</label>
+                                    <input id="username" type="text" class="input" name="username"  placeholder="Enter your username">
+                                  </div>
+                                  <div class="group">
+                                    <label for="pass" class="label">Password</label>
+                                    <input id="password" type="password" class="input" name="password" data-type="password" placeholder="Enter your password">
+                                  </div>
+                                  <div class="group">
+                                    <input id="check" type="checkbox" name="remember_me" class="check" checked>
+                                    <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                                  </div>
+                                  <div class="group">
+                                    <input type="submit" class="button" value="Sign In">
+                                  
+                                  </div>
+                                  <div class="hr"></div>
+                                  <div class="foot">
+                                    <a href="#">Forgot Password?</a>
+                                  </div>
+                                  
+                              </form>
+                            </div>
+                              <div class="sign-up-form">
+                                <form action="{% url 'register_user' %}" method="post">
+                                  {% csrf_token %}
+                                  <div class="group">
+                                    <label for="user" class="label">Username</label>
+                                    <input id="username_create" type="text" class="input" name="username" placeholder="Create your Username">
+                                  </div>
+                                  <div class="group">
+                                    <label for="pass" class="label">Password</label>
+                                    <input id="Password_confir" type="password" class="input" name="password1" data-type="password" placeholder="Create your password">
+                                  </div>
+                                  <div class="group">
+                                    <label for="pass" class="label">Repeat Password</label>
+                                    <input id="Password_create" type="password" class="input" name="password2" data-type="password" placeholder="Repeat your password" >
+                                  </div>
+
+                                  <div id="errorContainer" style="display: none; color: red;">Passwords do not match</div>
+
+                                  <div class="group">
+                                    <label for="pass" class="label">Email Address</label>
+                                    <input id="email" type="text" class="input" name="email" placeholder="Enter your email address">
+                                  </div>
+                                  <div class="group">
+                                    <input id="submitBtn" type="submit" class="button" value="Sign Up">
+                                  </div>
+                                </form>
+                                <div class="hr"></div>
+                                <div class="foot">
+                                  <label for="tab-1">Already Member?</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>   
+                        
+      
+                    </div>
+                  </div>
+                
+              </div>
+            
+          </div>
+          
+      </section>
+
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var password1Input = document.getElementById("Password_confir");
+            var password2Input = document.getElementById("Password_create");
+            var submitButton = document.getElementById("submitBtn");
+            var errorContainer = document.getElementById("errorContainer");
+    
+            function toggleSubmitButton() {
+              var passwordsMatch = (password1Input.value === password2Input.value);
+                submitButton.disabled = !passwordsMatch;
+
+                errorContainer.style.display = passwordsMatch ? "none" : "block";
+
+            }
+    
+            password1Input.addEventListener("input", toggleSubmitButton);
+            password2Input.addEventListener("input", toggleSubmitButton);
+        });
+    </script>
+      
+     
+
+</html>
+
+{% endblock %}

@@ -23,6 +23,7 @@ class ReservaHotel(models.Model):
     metodo_pago = models.ForeignKey(MetodoPago, on_delete=models.CASCADE)
     reserva_hotel = models.ForeignKey('self', on_delete=models.CASCADE, null=True)
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    habitacion = models.ForeignKey('hotel.Habitaciones', on_delete=models.CASCADE, null=True, blank=True) 
 
 class UsuarioHasReservaHotel(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True)

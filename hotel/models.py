@@ -17,14 +17,16 @@ class Habitaciones(models.Model):
     disponibilidad = models.CharField(max_length=45)
     precio = models.CharField(max_length=45)
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
-    reserva_hotel = models.ForeignKey(ReservaHotel, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.n_habitacion
+    
 
 class Ofertas(models.Model):
     habitacion = models.ForeignKey(Habitaciones, on_delete=models.CASCADE, null=True, blank=True)  
-    fecha_inicio = models.CharField(max_length=45)
-    fecha_finalizacion = models.CharField(max_length=45)
+    fecha_inicio = models.DateField()
+    fecha_finalizacion = models.DateField()
     precio = models.CharField(max_length=45)
-    ofertascol = models.CharField(max_length=45)
+    descripcion_oferta = models.CharField(max_length=45)
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, null=True, blank=True)  
   
     

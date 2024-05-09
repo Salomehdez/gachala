@@ -25,5 +25,9 @@ urlpatterns = [
     path('categorias/', categorias, name='categorias'),
     path('detalles/', detalles, name='detalles'),
     path('contacto/', contacto, name='contacto'),
-    path('ver_detalle_hotel/', ver_detalle_hotel, name='ver_detalle_hotel')
+    path('ver_detalle_hotel/', ver_detalle_hotel, name='ver_detalle_hotel'),
+    path('reservar/', reservar, name='reservar'),
+    path('custom_login/', custom_login, name='custom_login'),
+    path('register_user/', register_user, name='register_user'),
+    path('login/', login, name='login')
 ]

@@ -3,7 +3,7 @@ from .models import Ofertas, Hotel, Habitaciones
 
 @admin.register(Ofertas)
 class OfertasAdmin(admin.ModelAdmin):
-    list_display = ('fecha_inicio', 'fecha_finalizacion', 'precio', 'ofertascol')
+    list_display = ('fecha_inicio', 'fecha_finalizacion', 'precio', 'descripcion_oferta')
     search_fields = ('fecha_inicio', 'fecha_finalizacion')
     list_filter = ('fecha_inicio', 'fecha_finalizacion')
 
