@@ -20,14 +20,18 @@ from usuario.views import *
 from hotel.views import *
 
 urlpatterns = [
+    path('admin/login/', login_view, name='admin_login'),
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('categorias/', categorias, name='categorias'),
     path('detalles/', detalles, name='detalles'),
     path('contacto/', contacto, name='contacto'),
     path('ver_detalle_hotel/', ver_detalle_hotel, name='ver_detalle_hotel'),
-    path('reservar/', reservar, name='reservar'),
+    path('reservarHotel/', reservarHotel, name='reservarHotel'),
+    path('reservarRestaurante/', reservarAgencia, name='reservarRestaurante'),
+    path('reservarAgencia/', reservarAgencia, name='reservarAgencia'),
     path('custom_login/', custom_login, name='custom_login'),
     path('register_user/', register_user, name='register_user'),
-    path('login/', login, name='login')
+    path('login/', login_view, name='login'),#hacer_reserva
+    path('hacer_reserva/', hacer_reserva, name='hacer_reserva'),
 ]

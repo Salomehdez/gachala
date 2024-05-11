@@ -16,14 +16,16 @@ class MetodoPago(models.Model):
     tipo_de_pago = models.CharField(max_length=45)
 
 class ReservaHotel(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    habitacion = models.ForeignKey('hotel.Habitaciones', on_delete=models.CASCADE, null=True, blank=True) 
     fecha_llegada = models.CharField(max_length=45)
     fecha_salida = models.CharField(max_length=45)
     hora_llegada = models.CharField(max_length=45)
     hora_salida = models.CharField(max_length=45)
+    estado = models.CharField(max_length=45, null=True, blank=True)
     metodo_pago = models.ForeignKey(MetodoPago, on_delete=models.CASCADE)
     reserva_hotel = models.ForeignKey('self', on_delete=models.CASCADE, null=True)
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    habitacion = models.ForeignKey('hotel.Habitaciones', on_delete=models.CASCADE, null=True, blank=True) 
+    
 
 class UsuarioHasReservaHotel(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True)

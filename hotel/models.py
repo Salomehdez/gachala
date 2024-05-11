@@ -12,11 +12,12 @@ class Hotel(models.Model):
         return self.nombre
 
 class Habitaciones(models.Model):
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
     n_habitacion = models.CharField(max_length=45)
     capacidad_personas = models.CharField(max_length=45)
     disponibilidad = models.CharField(max_length=45)
     precio = models.CharField(max_length=45)
-    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
+    
     def __str__(self):
         return self.n_habitacion
     
