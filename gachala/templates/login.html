@@ -19,10 +19,9 @@
                   <div class="text-center justify-content-center">
                       <h2 >{{ mensaje }}</h2>
                   </div>
-                </div>
-              {% else %}
+                  {% else %}
 
-              {% endif %}
+                  {% endif %}
                   <div class="col-md-6 col-lg-7 d-flex align-items-center">
                     <div class="card-body p-4 p-lg-5 text-black">
       
@@ -80,7 +79,7 @@
                                     <input id="Password_create" type="password" class="input" name="password2" data-type="password" placeholder="Repeat your password" >
                                   </div>
 
-                                  <div id="errorContainer" style="display: none; color: red;">Passwords do not match</div>
+                                  <div id="errorContainer" style="display: none; color: rgb(255, 255, 255);">Passwords do not match</div>
 
                                   <div class="group">
                                     <label for="pass" class="label">Email Address</label>
@@ -106,9 +105,7 @@
               </div>
             
           </div>
-          
       </section>
-
 
       <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -129,8 +126,6 @@
             password2Input.addEventListener("input", toggleSubmitButton);
         });
     </script>
-      
-     
 
 </html>
 
